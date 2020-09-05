@@ -10,9 +10,36 @@
       <strong>Success!</strong> You request for subscription submitted successfully. Please wait, admin will confirm you request.
     </div>
 
-    <a href="/main/home">Go To Home</a>
-    
-
+    <a href="/main/home">Go To Home (<span id="counter"></span>)</a> 
 </div>
+
+<script>
+
+     $(document).ready(function() {
+        console.debug("Javascript mounted");
+        // Ajax, call server every 2 seonc and update timer
+        setInterval(() => {
+
+            $.ajax({
+              url: "/main/getstat",
+              cache: false,
+              success: function(resp){
+                
+                let data=resp['counter'];
+                console.debug(resp,data);
+  
+                $("#counter").text(data)
+
+              }
+            });            
+
+
+        },2000);
+     });
+
+
+</script>
+
+
 
 {% endblock %}

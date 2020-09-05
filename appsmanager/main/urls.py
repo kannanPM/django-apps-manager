@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^home/$',Home.home, name='home'),
     url(r'^subscribe/$',Subscribe.as_view(), name='subscribe'),
     url(r'^subscribetoapp/$',Subscribe.subscribetoapp, name='subscribe'),
+    url(r'^getstat/$',Home.getstat, name='getstat'),
     url(r'^info/$',Subscribe.info, name='subscribe'),
     path('openapp/<int:appid>',Home.openapp, name='app'),
 ]

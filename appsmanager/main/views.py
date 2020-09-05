@@ -17,6 +17,7 @@ from django.contrib.auth.models import User, Group
 from django.core.mail import send_mail
 
 from django.template.response import TemplateResponse
+from django.http import JsonResponse
 
 
 
@@ -104,6 +105,21 @@ class Home(TemplateView):
                 return redirect("/main/info")
             
      
+    def getstat(request):
+        # To logout the requested user
+        print("getstat")
+
+        if not request.session.has_key('counter'):
+            request.session['counter']=0
+        else:
+            request.session['counter']+=1
+    
+        data = {'counter': request.session['counter']}
+
+        
+
+        return JsonResponse(data, safe=False)
+
     
        
 class Subscribe(TemplateView):
