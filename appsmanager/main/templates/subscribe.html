@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Subscribe</title>{% endblock %}
+
+{% block content %}
+
+<div class="d-flex align-items-center justify-content-center p-2">
+
+        
+    <div class="card" style="width:400px">
+      <img class="card-img-top" src="https://www.impactbnd.com/hubfs/15%20Brands%20Using%20Subscribe%20Pages%20to%20Attract%20Blog%20Subscribers.jpg" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">{{ request.session.apptosubscribe.name}}</h4>
+        <p class="card-text">{{ request.session.apptosubscribe.description }}</p>
+        <a href="/main/subscribetoapp" class="btn btn-primary">Subscribe</a>
+      </div>
+    </div>
+
+
+
+</div>
+
+{% endblock %}

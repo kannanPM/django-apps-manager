@@ -1,0 +1,25 @@
+Create superuser
+
+
+    To add new
+
+        python manage.py createsuperuser
+
+Demo users
+
+    
+    Existing admin Credentials:
+
+        admin
+        admin@123
+
+    Normal user details
+
+        demouser1
+        demo@123
+
+Run server
+
+    python manage.py runserver
+
+

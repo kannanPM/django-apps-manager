@@ -1,0 +1,119 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% block title %}<title>Apps Manager</title>{% endblock %}
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="{% static "main/style.css" %}" />
+
+  <style>
+        html,
+        body {
+          height: 100%;
+        }
+
+        .page-content {
+          flex: 1 0 auto;
+        }
+
+        #sticky-footer {
+          flex-shrink: none;
+        }
+
+        /* Other Classes for Page Styling */
+
+        body {
+          background: #f1f1f1;
+          background: linear-gradient(to right, #ffffff, #ebeff1);
+
+        }
+
+        .login-block{
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+            width: 100%;
+
+        }
+        .login-block form{
+
+            width: 400px;
+
+        }
+        .card{
+                box-shadow: 0px 10px 10px 0px #dedddd;
+        }
+
+  </style>
+
+
+</head>
+<body class="d-flex flex-column">
+
+{% if user.is_authenticated %}
+     <nav class="navbar navbar-expand-sm bg-light">
+
+       <a class="navbar-brand" href="/main/home">
+        <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/b6/c3/cb/b6c3cb54-5fd6-3d1f-7b13-255aa6e56b3e/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x630wa.png" alt="Logo" style="width:90px;">
+      </a>
+
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item d-flex align-items-center text-info">
+            Loggedin as: {{ user.username }}
+        <li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/main/logout">
+
+            <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+        </li>
+      </ul>
+
+    </nav>
+
+{% endif %}
+
+
+<div class="page-content">
+
+<div class="container-fluid">
+
+
+
+    {% block content %}
+
+        <!-- default content text (typically empty) -->
+
+    {% endblock %}
+
+
+</div>
+</div>
+
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; Your Website</small>
+    </div>
+  </footer>
+
+</body>
+</html>

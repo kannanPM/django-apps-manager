@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Home</title>{% endblock %}
+
+{% block content %}
+
+<div class="d-flex">
+
+   
+    {% for app in apps%}
+
+        <div class="card m-2" style="width: 300px">
+          <div class="card-body">
+            <h4 class="card-title"> {{app.app_name}} </h4>
+            <p class="card-text">{{app.app_description}}</p>
+
+            <a href="/main/openapp/{{app.id}}" class="card-link">Explore</a>
+          </div>
+        </div>
+
+
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}
